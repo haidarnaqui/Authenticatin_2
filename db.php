@@ -1,0 +1,11 @@
+<html>
+    <head>
+        <title></title>
+    </head>
+    <body>
+        <?php
+          $con=mysql_connect("localhost","root","");
+          mysql_selectdb("authdb",$con);
+        ?>
+    </body>
+</html>
