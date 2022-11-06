@@ -5,27 +5,29 @@ if(isset($_POST['submit']))
     // $id=$_POST['id'];
     $u_id=$_POST['user_id'];
      $c_id=$_POST['category_id'];
-   
+     
 foreach ($c_id as $c_idd)
  {
-    // $sql="select * from user_cat_map where user_id='$u_id' and 'cat_id='$c_idd' LIMIT 1";
-    // // echo $sql;die;
-    // $result=mysql_query($sql);
-    // if($row=mysql_fetch_Array($result))
-    // {
-    //     echo "already exist";
-    // }
+    $sql="select * from user_cat_map where user_id='$u_id' and cat_id='$c_idd' LIMIT 1";
+    // echo $sql;die;
+    $result=mysql_query($sql);
+    if($row=mysql_fetch_Array($result))
+    {
+        echo "already exist ";
+      echo '<a href="add_ucmap.php">Back to Click Here</a>';die;
+    }
 
-    // else
-    // {
+    else
+    {
         $sql="insert into user_cat_map(user_id,cat_id) values($u_id,$c_idd)";
         mysql_query($sql);
      }
+    
     //    print_r(mysql_query($sql));die;
        
 
          header('location:ui_ucmap.php');
- 
+    }
 };
 ?>
 <html lang="en">
